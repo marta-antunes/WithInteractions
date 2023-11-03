@@ -1,11 +1,10 @@
 # G23 dataset
-setwd("/home/mrtntns/Documents/temp_julho2022/git/DiffExpWithInteractions")
 #install lme4
 #install.packages("lme4",
 #                 repos=c("http://lme4.r-forge.r-project.org/repos",
 #                         getOption("repos")[["CRAN"]]))
 
-#necessary
+#necessary libraries
 library(lme4)
 library(car)
 library(glmmTMB)
@@ -13,7 +12,7 @@ library(bbmle) #necessary to AIC
 
 
 args <- commandArgs(TRUE)
-##tive de remover o espaço no início do header
+##First remove space in the beginning of the file
 normalizedCounts <- read.table(args[1], sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 #normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
@@ -27,7 +26,7 @@ transposed_of_normalizedCounts <- t(dataInAtLeastXsamples)    #transpose the row
 
 
 #Creating new data frame - name: NewColumns.Df,   
-#Contains two columns History and Environment  
+#Contains four columns: History, Environment, AP and Selection
 NewColumns.Df <- data.frame(  
   History = c(rep("PT",3), rep("NL",6), rep("PT",3), rep("PT",6), rep("NL",6)),
   Environment = c(rep("C",4),rep("W",1),rep("C",1), rep("W",1), rep("C",1),rep("W",4),rep("C",3), rep("W",3),rep("C",1), rep("W",1),rep("C",1), rep("W",1),rep("C",1), rep("W",1)),
