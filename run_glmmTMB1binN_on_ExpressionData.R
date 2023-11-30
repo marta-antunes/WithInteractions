@@ -5,9 +5,9 @@
 #                         getOption("repos")[["CRAN"]]))
 
 #necessary libraries
-library(lme4)
-library(car)
-library(glmmTMB)
+library(lme4) 
+library(car) #necessary to Anova
+library(glmmTMB) #necessary to run the model
 library(bbmle) #necessary to AIC
 
 
