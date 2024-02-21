@@ -1,4 +1,4 @@
-# G23 dataset
+# compare models using normalized counts for all samples
 
 library(lme4)
 library(car)
