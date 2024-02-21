@@ -66,6 +66,7 @@ for(i in 1:ncol(data1)) {       # for-loop over columns
   colnames(subsetted) <- c(geneName)
   #transpose
   transposed_of_AnovaGlmmTMB1_binN <- as.data.frame(t(subsetted),stringsAsFactors = FALSE)
+  #for high latitude populations change the name of the output file
   try(write.table(transposed_of_AnovaGlmmTMB1_binN, "PT_only_selection.csv" , append = TRUE, sep = '\t', col.names = FALSE, row.names = TRUE))
  
 }
