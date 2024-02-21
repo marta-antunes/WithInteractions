@@ -1,8 +1,4 @@
 # G23 dataset
-#install lme4
-#install.packages("lme4",
-#                 repos=c("http://lme4.r-forge.r-project.org/repos",
-#                         getOption("repos")[["CRAN"]]))
 
 #necessary libraries
 library(lme4) 
@@ -10,11 +6,8 @@ library(car) #necessary to Anova
 library(glmmTMB) #necessary to run the model
 library(bbmle) #necessary to AIC
 
-
-args <- commandArgs(TRUE)
-##First remove space in the beginning of the file
-normalizedCounts <- read.table(args[1], sep = '\t', header=TRUE, stringsAsFactors = TRUE)
-#normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
+##verify if there is no space in the beginning of the file
+normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
 
 #keep genes that have data in at least 3 of the samples (columns).
