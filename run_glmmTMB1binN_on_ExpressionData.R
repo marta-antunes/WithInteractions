@@ -1,4 +1,4 @@
-# G23 dataset
+# Overall gene expression analysis
 
 #necessary libraries
 library(lme4) 
