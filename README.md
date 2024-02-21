@@ -7,4 +7,3 @@ I wrote DiffExpWithInteractions to fill this gap.
 
 input: file with normalized count data
 
-usage: 
