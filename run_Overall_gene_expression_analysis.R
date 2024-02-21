@@ -81,7 +81,7 @@ for(i in 1:ncol(data1)) {       # for-loop over columns
   colnames(subsetted) <- c(geneName)
   #transpose
   transposed_of_AnovaGlmmTMB1_binN <- as.data.frame(t(subsetted),stringsAsFactors = FALSE)
-  try(write.table(transposed_of_AnovaGlmmTMB1_binN, args[2] , append = TRUE, sep = '\t', col.names = FALSE, row.names = TRUE))
+  try(write.table(transposed_of_AnovaGlmmTMB1_binN, "results_OverallGeneExpressionAnalysis.csv" , append = TRUE, sep = '\t', col.names = FALSE, row.names = TRUE))
 
 }
 
