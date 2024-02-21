@@ -6,7 +6,7 @@ library(car)
 library(glmmTMB)
 library(bbmle) #necessary to AIC
 
-##tive de remover o espaço no início do header
+##check if there is no space in the begining of the header
 normalizedCounts <- read.table("Galaxy108-Normalized_counts.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
 #keep genes that have data in at least 3 of the samples (columns).
