@@ -1,10 +1,4 @@
-# G23 dataset
-#setwd("/home/mrtntns/Documents/temp_julho2022/git/DiffExpWithInteractions/General_withoutF")
-#install lme4
-#install.packages("lme4",
-#                 repos=c("http://lme4.r-forge.r-project.org/repos",
-#                         getOption("repos")[["CRAN"]]))
-
+# Analysis of Plasticity
 #necessary
 library(lme4)
 library(car)
