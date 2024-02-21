@@ -6,7 +6,7 @@ library(car) #necessary to Anova
 library(glmmTMB) #necessary to run the model
 library(bbmle) #necessary to AIC
 
-##verify if there is no space in the beginning of the file
+##check if there is no space in the beginning of the file
 normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
 
