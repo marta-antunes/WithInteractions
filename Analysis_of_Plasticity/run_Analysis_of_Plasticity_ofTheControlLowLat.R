@@ -51,12 +51,10 @@ for(i in 1:ncol(data1)) {       # for-loop over columns
     AnovaGlmmTMB1_binN <- data.frame(Chisq, Df, pvalue)
   }
   AnovaGlmmTMB1_binN[nrow(AnovaGlmmTMB1_binN) + 1,] = c('NA', 'NA',upOrDownPT)
-  #AnovaGlmmTMB1_binN[nrow(AnovaGlmmTMB1_binN) + 1,] = c('NA', 'NA',upOrDownWPT)
 
   
   # changing row names of data frame
   rownames(AnovaGlmmTMB1_binN)[3] <- "upOrDownPT"
-  #rownames(AnovaGlmmTMB1_binN)[6] <- "upOrDownWPT"
 
   
   #Sort Using Character row.names
