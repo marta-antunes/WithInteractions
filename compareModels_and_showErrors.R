@@ -1,19 +1,12 @@
-# v3 the general (G23 dataset)
-setwd("/home/mrtntns/Documents/temp_julho2022")
-#install lme4
-#install.packages("lme4",
-#                 repos=c("http://lme4.r-forge.r-project.org/repos",
-#                         getOption("repos")[["CRAN"]]))
+# G23 dataset
+
 library(lme4)
 library(car)
 library(glmmTMB)
 library(bbmle) #necessary to AIC
 
-
-args <- commandArgs(TRUE)
-##tive de remover o espaço no início do header
-normalizedCounts <- read.table(args[1], sep = '\t', header=TRUE, stringsAsFactors = TRUE)
-#normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
+##remove the space in the beggining of the header
+normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
 
 #keep genes that have data in at least 3 of the samples (columns).
