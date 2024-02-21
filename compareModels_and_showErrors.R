@@ -5,7 +5,7 @@ library(car)
 library(glmmTMB)
 library(bbmle) #necessary to AIC
 
-##remove the space in the beggining of the header
+##verify if there is no the space in the beggining of the header
 normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
 
