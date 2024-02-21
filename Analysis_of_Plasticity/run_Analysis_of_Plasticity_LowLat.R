@@ -7,6 +7,7 @@ library(glmmTMB)
 library(bbmle) #necessary to AIC
 
 ##check if there is no space in the begining of the header
+#select files 108 or 123 to analyse control platicity of low or high latitude populations respectively
 normalizedCounts <- read.table("Galaxy108-Normalized_counts.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
 #keep genes that have data in at least 3 of the samples (columns).
