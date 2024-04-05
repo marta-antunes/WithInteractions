@@ -1,23 +1,22 @@
 # G23 dataset
 
+
 #necessary
 library(lme4)
 library(car)
 library(glmmTMB)
 library(bbmle) #necessary to AIC
 
-
 #read file with normalized counts
 normalizedCounts <- read.table("Galaxy238_changedLabels.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
-
 
 #keep genes that have data in at least 3 of the samples (columns).
 dataInAtLeastXsamples <- normalizedCounts[ rowSums( normalizedCounts > 0 ) >= 3, ]
 
-
 #make PCA with the prcomp() function
 #This function takes a matrix of data, where the columns are the variables that we want to use to transform our samples, which should be the rows of the matrix. So we need to transpose our matrix.
-project.pca <- prcomp(t(dataInAtLeastXsamples))
+#We Scaled the expression matrix before PCA 
+project.pca <- prcomp(t(dataInAtLeastXsamples), scale. = TRUE)
 summary(project.pca)
 
 #Determine the proportion of variance of each component
