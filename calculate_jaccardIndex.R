@@ -7,14 +7,6 @@ dataInAtLeastXsamples <- normalizedCounts[ rowSums( normalizedCounts > 0 ) >= 3,
 #transpose
 transposed_of_normalizedCounts <- t(dataInAtLeastXsamples)    #transpose the rows and columns
 
-#teste <- data.frame(
-#  "gene1" = c(321, 628,1),
-#  "gene2" = c(2106, 8845,2),
-#  "gene3"=c(5, 2,1),
-#  row.names = c("PT1", "PT2","PT3"),
-#  stringsAsFactors = FALSE
-#)
-
 ########## PT1 vs PT2 ##########
 
 #subset to make 2 by 2 comparisons
