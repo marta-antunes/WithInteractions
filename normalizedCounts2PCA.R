@@ -32,3 +32,19 @@ points(project.pca$x, col=c('blue','blue','blue','blue','red','blue','red','blue
 par(mar=c(5,0,4,0))  # Adjust margins for the legend
 plot.new()  # Create a new plot
 legend("center", legend=c("Warming environment", "Control environment", "Control Regime", "Warming Regime", "Low latitude", "High latitude"), col=c("red", "blue", "grey38", "grey38", "grey38", "grey38"), lty = c(0, 0, 0), cex=0.6, pch = c(16, 16, 16, 15, 16, 21))
+
+
+#code used for pvca
+library(Biobase)
+library(ExpressionNormalizationWorkflow)
+
+env <- sapply(rownames(project.pca$x), function(x) substr(x, nchar(x), nchar(x)))
+pop <- c(sapply(rownames(project.pca$x[1:12,]), function(x) substr(x, 8,9)),
+         sapply(rownames(project.pca$x[13:24,]), function(x) substr(x, 9,10)))
+evo <- c(rep("control",12),rep("evolved",12))
+meta.table<-data.frame(evo=evo,pop=pop,env = env, row.names = rownames(project.pca$x))
+annot<-data.frame(labelDescription=c("Factor levels","Factor levels","Factor levels"))
+annot_factors<-AnnotatedDataFrame(data = meta.table,varMetadata = annot)
+expr.set<-ExpressionSet(assayData = as.matrix(dataInAtLeastXsamples),phenoData = annot_factors)
+pvca_res<-pvcAnaly(expr.set, 0.53,c("evo","pop","env"))
+## I used 0.53 as the threshold since the first three PC explain about 52.6% of the variance.
