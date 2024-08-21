@@ -1,7 +1,7 @@
 # G23 dataset
 
 #read file with normalized counts
-normalizedCounts <- read.table("Galaxy238_changedLabels.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
+normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
 #keep genes that have data in at least 3 of the samples (columns).
 dataInAtLeastXsamples <- normalizedCounts[ rowSums( normalizedCounts > 0 ) >= 3, ]
