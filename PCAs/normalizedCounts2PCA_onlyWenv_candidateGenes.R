@@ -1,9 +1,9 @@
 # G23 dataset
 
 #read file with normalized counts
-normalizedCounts <- read.table("Galaxy238_changedLabels.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
+normalizedCounts <- read.table("Galaxy238.tabular", sep = '\t', header=TRUE, stringsAsFactors = TRUE)
 
-onlyWarmingEnv <- normalizedCounts[, c("PT1_W", "PT2_W", "PT3_W", "NL1_W", "NL2_W", "NL3_W", "WPT1_W", "WPT2_W", "WPT3_W", "WNL1_W", "WNL2_W", "WNL3_W")]
+onlyWarmingEnv <- normalizedCounts[, c("counts_PT1_G23_W", "counts_PT2_G23_W", "counts_PT3_G23_W", "counts_NL1_G23_W", "counts_NL2_G23_W", "counts_NL3_G23_W", "counts_WPT1_G23_W", "counts_WPT2_G23_W", "counts_WPT3_G23_W", "counts_WNL1_G23_W", "counts_WNL2_G23_W", "counts_WNL3_G23_W")]
 
 #keep genes that have data in at least 3 of the samples (columns).
 dataInAtLeastXsamples <- onlyWarmingEnv[ rowSums( onlyWarmingEnv > 0 ) >= 3, ]
@@ -44,12 +44,12 @@ points(project.pca$x, col=c('grey38','grey38','grey38','grey38','grey38','grey38
 #initially we included the name of the samples but them we realize we dont need, if you want to rescue that uncoment the line below
 #text(project.pca$x, labels=rownames(project.pca$x), cex=0.6, font=2, pos=2)
 # Get coordinates of NL1_W and WNL1_W for the arrow
-NL1_W_coords <- project.pca$x["NL1_W",]
-WNL1_W_coords <- project.pca$x["WNL1_W",]
-NL2_W_coords <- project.pca$x["NL2_W",]
-WNL2_W_coords <- project.pca$x["WNL2_W",]
-NL3_W_coords <- project.pca$x["NL3_W",]
-WNL3_W_coords <- project.pca$x["WNL3_W",]
+NL1_W_coords <- project.pca$x["counts_NL1_G23_W",]
+WNL1_W_coords <- project.pca$x["counts_WNL1_G23_W",]
+NL2_W_coords <- project.pca$x["counts_NL2_G23_W",]
+WNL2_W_coords <- project.pca$x["counts_WNL2_G23_W",]
+NL3_W_coords <- project.pca$x["counts_NL3_G23_W",]
+WNL3_W_coords <- project.pca$x["counts_WNL3_G23_W",]
 
 # Add the arrow linking NL1_W to WNL1_W
 arrows(x0 = NL1_W_coords[1], y0 = NL1_W_coords[2], 
@@ -65,12 +65,12 @@ arrows(x0 = NL3_W_coords[1], y0 = NL3_W_coords[2],
        length = 0.1, angle = 30, code = 2, col = "blue", lwd = 2)
 
 # Get coordinates of PT1_W and WPT1_W for the arrow
-PT1_W_coords <- project.pca$x["PT1_W",]
-WPT1_W_coords <- project.pca$x["WPT1_W",]
-PT2_W_coords <- project.pca$x["PT2_W",]
-WPT2_W_coords <- project.pca$x["WPT2_W",]
-PT3_W_coords <- project.pca$x["PT3_W",]
-WPT3_W_coords <- project.pca$x["WPT3_W",]
+PT1_W_coords <- project.pca$x["counts_PT1_G23_W",]
+WPT1_W_coords <- project.pca$x["counts_WPT1_G23_W",]
+PT2_W_coords <- project.pca$x["counts_PT2_G23_W",]
+WPT2_W_coords <- project.pca$x["counts_WPT2_G23_W",]
+PT3_W_coords <- project.pca$x["counts_PT3_G23_W",]
+WPT3_W_coords <- project.pca$x["counts_WPT3_G23_W",]
 
 # Add the arrow linking PT1_W to WPT1_W
 arrows(x0 = PT1_W_coords[1], y0 = PT1_W_coords[2], 
@@ -89,4 +89,24 @@ arrows(x0 = PT3_W_coords[1], y0 = PT3_W_coords[2],
 par(mar=c(5,0,4,0))  # Adjust margins for the legend
 plot.new()  # Create a new plot
 legend("center", legend=c("Control Regime", "Warming Regime", "Low latitude", "High latitude"), col=c("grey38", "grey38", "grey38", "grey38"), lty = c(0, 0, 0), cex=0.6, pch = c(16, 15, 16, 21))
+
+
+#code used for pvca
+library(Biobase)
+library(ExpressionNormalizationWorkflow)
+
+
+pop <- c(sapply(rownames(project.pca$x[1:6,]), function(x) substr(x, 8,9)),
+         sapply(rownames(project.pca$x[7:12,]), function(x) substr(x, 9,10)))
+evo <- c(rep("control",6),rep("evolved",6))
+meta.table<-data.frame(evo=evo,pop=pop, row.names = rownames(project.pca$x))
+annot<-data.frame(labelDescription=c("Factor levels","Factor levels"))
+annot_factors<-AnnotatedDataFrame(data = meta.table,varMetadata = annot)
+expr.set<-ExpressionSet(assayData = as.matrix(dataInAtLeastXsamples),phenoData = annot_factors)
+#pvca_res<-pvcAnaly(expr.set, 0.69,c("evo","pop"))
+## I used 0.69 in low lat as the threshold since the first three PC explain about 68.9% of the variance.
+
+pvca_res<-pvcAnaly(expr.set, 0.84,c("evo","pop"))
+## I used 0.84 in high lat as the threshold since the first three PC explain about 83.5% of the variance.
+
 
