@@ -1,3 +1,6 @@
+#no input file is needed
+#output: gives
+
 #low latitude populations
 
 dat1 <- data.frame(
