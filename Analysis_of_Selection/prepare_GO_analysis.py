@@ -26,7 +26,6 @@ def get_proteinName_for_selectedGenes(gff, subset_file):
         subset_genes = [line.strip() for line in file]
         for gene_id in subset_genes:
             for item in gff_values:  
-                print(item)
                 if any(gene_id in sub_item for sub_item in item):
                     for sub_item in item:
                         if "product=" in sub_item:
