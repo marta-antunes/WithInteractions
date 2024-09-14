@@ -49,7 +49,7 @@ def get_unique_in_dict(loc_dict):
 gff_info = read_gff("GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff")
 
 # Subset GFF file based on another file
-subset_info = get_proteinName_for_selectedGenes(gff_info, "Selection_lowLatitude.txt")
+subset_info = get_proteinName_for_selectedGenes(gff_info, "CandidatesLowLat.txt")
 
 #print unique in dict
 get_unique_in_dict(subset_info)
