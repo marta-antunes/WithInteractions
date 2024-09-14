@@ -40,8 +40,8 @@ def get_unique_in_dict(loc_dict):
 
     for loc, value in loc_dict.items():
         if loc not in printed_locs:
-            #print(f'{loc}: {value}')
-            printed_locs.add(loc)
+            print(f'{loc}: {value}')
+            #printed_locs.add(loc)
 
 
 # Example usage:
