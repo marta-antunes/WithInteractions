@@ -213,22 +213,21 @@ output file: Supplementary Tables S16A and S16B
 
 
 
-6.5 Evolution of Plasticity
+6.5 Evolution of Plasticity  
 6.5.1 normalize counts with DESeq2 within galaxy for each latitudinal population
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
 |Input files	                 |count files for PT_C, WPT_C, PT_W and WPT_W samples|	count files for NL_C, WNL_C, NL_W and WNL_W samples|
 |Output                    	 |/Analysis_of_the_Evolution_of_plasticity/Galaxy255-Normalized_counts.tabular|	/Analysis_of_the_Evolution_of_plasticity/Galaxy252-Normalized_counts.tabular|
 
-6.5.2 Differential expression analysis
-	Low latitude populations	High latitude populations
-Input files	/Analysis_of_the_Evolution_of_plasticity/Galaxy255-Normalized_counts.tabular	/Analysis_of_the_Evolution_of_plasticity/Galaxy252-Normalized_counts.tabular
-Output	Supplementary Table S19A	Supplementary Table S19B
+6.5.2 Differential expression analysis  
+`/Analysis_of_the_Evolution_of_plasticity/run_Analysis_of_evolution_of_plasticity.R`(select appropriate file names within the code)
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |/Analysis_of_the_Evolution_of_plasticity/Galaxy255-Normalized_counts.tabular	|/Analysis_of_the_Evolution_of_plasticity/Galaxy252-Normalized_counts.tabular|
+|Output                          |Supplementary Table S19A	   |Supplementary Table S19B         |
 
-```
-/Analysis_of_the_Evolution_of_plasticity/run_Analysis_of_evolution_of_plasticity.R
-```
- (select appropriate file names within the code)
+
 
 # 7. Plasticity vs Evolution (files provided)
 7.1 Fisher exact test for each latitudinal population
