@@ -69,7 +69,7 @@ normalizedCounts2PCA.R
 ```
 output: PCA and PVCA plots (Fig. 2A)
 
-4.3 differential expression analysis
+4.3 differential expression analysis  
 input file: Galaxy238.tabular 
 ```
 run_Overall_gene_expression_analysis.R
