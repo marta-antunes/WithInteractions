@@ -181,7 +181,7 @@ input file: /EffectOfHistoy_inPlasticityOfControlPops/Galaxy179-Normalized_count
 ```
 output file: Supplementary Tables S16A and S16B
 
-6.3 Analysis of differences between control populations of distinct history
+6.3 Analysis of differences between control populations of distinct history  
 6.3.1 normalize counts with DESeq2 within galaxy for each environment
 |                                | Control environment        | Warming environment       |
 |--------------------------------|----------------------------|---------------------------|
