@@ -229,7 +229,7 @@ output file: Supplementary Tables S16A and S16B
 
 
 
-# 7. Plasticity vs Evolution (files provided)
+# 7. Plasticity vs Evolution
 7.1 Fisher exact test for each latitudinal population  
 input file: not necessary
 ```
@@ -237,7 +237,7 @@ Fisher_test_for_plasticity_and_selection.R
 ```
 output: p-value, alternative hypothesis, 95 percent confidence interval and odds ratio for each latitudinal population
 
-# 8. Jaccard index (files provided)
+# 8. Jaccard index
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
 |Input files	                 |/Analysis_of_Selection/Galaxy218-Normalized_counts.tabular+interest.txt|	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular+interest.txt|
