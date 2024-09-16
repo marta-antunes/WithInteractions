@@ -9,7 +9,7 @@ DESeq2, a widely used tool for differential gene expression analysis, estimates 
 To address this limitation, some of the code in this repository (e.g. run_Overall_gene_expression_analysis.R) extends DESeq2's functionality. It enables differential gene expression analysis based on the negative binomial distribution while incorporating interaction terms, allowing for more nuanced statistical insights.
 
 # 1. Pre-processing
-1.1. Quality control (fastqc is a quality control tool for high throughput sequence data)
+1.1. Quality control (fastqc is a quality control tool for high throughput sequence data)  
 input files: the “.fq.gz” files stored at Sequence Read Archive (SRA) with accession number: XXX 
 ```
 for file in  /*.fq.gz; do
