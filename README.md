@@ -84,10 +84,8 @@ output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 
 | Output file                    | /Analysis_of_Selection/Galaxy218-Normalized_counts.tabular | /Analysis_of_Selection/Galaxy225-Normalized_counts.tabular |
 
 5.2 differential expression analysis in each latitudinal population
-```
-/Analysis_of_Selection/run_Analysis_of_Selection.R
-```
-(select appropriate options within the code)
+
+`/Analysis_of_Selection/run_Analysis_of_Selection.R` (select appropriate options within the code)
 
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
