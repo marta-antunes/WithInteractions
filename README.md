@@ -49,7 +49,7 @@ do;/opt/tools/subread-2.0.0-Linux-x86_64/bin/featureCounts -p -T 9 -F GFF -t gen
 ```
 output files: count files for each sample
 
-3.2 generate supplementary figure S2
+3.2 generate supplementary figure S2  
 MultiQC software receives count files for all samples and generates the figure. The dot below (.) indicates that the software was run in the current working directory.
 ```
 Multiqc .
