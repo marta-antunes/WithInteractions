@@ -186,4 +186,4 @@ output: p-value, alternative hypothesis, 95 percent confidence interval and odds
 Input files	/Analysis_of_Selection/Galaxy218-Normalized_counts.tabular+interest.txt	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular+interest.txt
 Output	Mean jaccard Index	Mean jaccard Index
 
-==calculate_jaccard
+== calculate_jaccardIndex.R ==
