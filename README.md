@@ -57,10 +57,10 @@ output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 
 
 # 5. Evolutionary changes in the warming environment 
 5.1 normalize counts with DESeq2 within galaxy for each latitudinal population
-	|Low latitude populations|High latitude populations
+	|Low latitude populations|High latitude populations|
 	------------
-Input file| count files for PT_W and WPT_W samples|	count files for NL_W and WNL_W samples
-Output file| /Analysis_of_Selection/Galaxy218-Normalized_counts.tabular|	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular
+Input file| count files for PT_W and WPT_W samples|	count files for NL_W and WNL_W samples|
+Output file| /Analysis_of_Selection/Galaxy218-Normalized_counts.tabular|	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular|
 
 5.2 differential expression analysis in each latitudinal population
 ==/Analysis_of_Selection/run_Analysis_of_Selection.R== (select appropriate options within the code)
