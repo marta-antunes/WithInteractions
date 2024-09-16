@@ -62,7 +62,7 @@ input files: count files for all samples
 output file: Galaxy238.tabular (file with normalized counts)  
 all normalizations were done selection the option “output options”>”Output normalised counts” on DESeq2 within Galaxy
 
-4.2 make PCA and PVCA for all samples using our full gene dataset
+4.2 make PCA and PVCA for all samples using our full gene dataset  
 input file: Galaxy238.tabular
 ```
 normalizedCounts2PCA.R
