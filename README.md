@@ -230,7 +230,7 @@ output file: Supplementary Tables S16A and S16B
 
 
 # 7. Plasticity vs Evolution (files provided)
-7.1 Fisher exact test for each latitudinal population
+7.1 Fisher exact test for each latitudinal population  
 input file: not necessary
 ```
 Fisher_test_for_plasticity_and_selection.R
