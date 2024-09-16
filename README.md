@@ -1,12 +1,12 @@
 # Evolution and plasticity of gene expression under progressive warming in Drosophila subobscura
 Authors: Marta A. Antunes, Marta A. Santos, Ana S. Quina, Mauro Santos, Margarida Matos & Pedro Simões
-#- Workflow -
+# - Workflow -
 
 Below we provide a step-by-step workflow of the analyses in the paper. Shaded background represents the code for the analysis or filenames for specific files containing code (provided).
 DESeq2, a widely used tool for differential gene expression analysis, estimates variance-mean dependence in count data from high-throughput sequencing assays and tests for differential expression using the negative binomial distribution. However, DESeq2 does not provide p-values for interaction terms in its analyses.
 To address this limitation, some of the code in this repository (e.g. run_Overall_gene_expression_analysis.R) extends DESeq2's functionality. It enables differential gene expression analysis based on the negative binomial distribution while incorporating interaction terms, allowing for more nuanced statistical insights.
 
-#1. Pre-processing
+# 1. Pre-processing
 1.1. Quality control (fastqc is a quality control tool for high throughput sequence data)
 input files: the “.fq.gz” files stored at Sequence Read Archive (SRA) with accession number: XXX 
 ==for file in  /*.fq.gz; do
@@ -18,7 +18,7 @@ input files: the “.fq.gz” files stored at Sequence Read Archive (SRA) with a
 ==fastp -i ${file}_1.fq.gz -I ${file}_2.fq.gz -o /2_preprocessing/${file}_1.Q20L120.fq.gz -O 2_preprocessing/${file}_2.Q20L120.fq.gz --unpaired1 /2_preprocessing/${file}_unpaired1 --unpaired2 /2_preprocessing/${file}_unpaired2 --thread 11 --adapter_sequence AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT --adapter_sequence_r2 GATCGGAAGAGCACACGTCTGAACTCCAGTCAC --average_qual 20 --length_required 120 --overrepresentation_analysis  --json /1_preprocessing/${file}.json --html /1_preprocessing/${file}.html==
 outputs: “.Q20L120.fq.gz” file for each input file
 
-#2. Mapping
+# 2. Mapping
 2.1 Index genome and annotation file
 ==/opt/tools/STAR-2.7.9a/source/STAR --runMode genomeGenerate --runThreadN 11 --genomeDir /3_mapping/StarIndexFiles/ --genomeFastaFiles /ReferenceGenome/drosophilaSubobscura_1.0/ncbi/GCF_008121235.1_UCBerk_Dsub_1.0_genomic.fna --sjdbGTFfile /ReferenceGenome/drosophilaSubobscura_1.0/ncbi/GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff --sjdbGTFfeatureExon exon --sjdbGTFtagExonParentTranscript ID --sjdbGTFtagExonParentGene Parent --genomeSAindexNbases 12==
 
@@ -28,7 +28,7 @@ outputs: “.Q20L120.fq.gz” file for each input file
 2.3 Pass 2 for one sample (as example), give as argument the SJ.tab file produced for all the pair. Generates a sorted by coordinate BAM file
 ==/opt/tools/STAR-2.7.9a/source/STAR --runMode alignReads --runThreadN 11 --genomeDir /3_mapping/StarIndexFiles/ --readFilesCommand zcat --readFilesIn PT1_G23_C_1.Q20L120.fq.gz PT1_G23_C_2.Q20L120.fq.gz --sjdbFileChrStartEnd *SJ.out.tab --outSAMtype BAM SortedByCoordinate --outFileNamePrefix RNASEQ_PT1G23C.Q20L120_Alingment2 --limitBAMsortRAM 3059132604==
 
-#3. Feature counts
+# 3. Feature counts
 3.1 run featureCounts
 input files: “.bam” files from the Pass 2 alignment and gff from the reference genome
 ==for file in folder
@@ -39,7 +39,7 @@ output files: count files for each sample
 MultiQC software receives count files for all samples and generates the figure. The dot below (.) indicates that the software was run in the current working directory.
 ==Multiqc .==
 
-#4. Overall gene expression analysis
+# 4. Overall gene expression analysis
 4.1 normalize counts with DESeq2 within galaxy
 input files: count files for all samples
 output file: Galaxy238.tabular (file with normalized counts)
@@ -55,11 +55,12 @@ input file: Galaxy238.tabular
 ==run_Overall_gene_expression_analysis.R==
 output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 and S10)
 
-#5. Evolutionary changes in the warming environment 
+# 5. Evolutionary changes in the warming environment 
 5.1 normalize counts with DESeq2 within galaxy for each latitudinal population
-	Low latitude populations	High latitude populations
-Input file	count files for PT_W and WPT_W samples	count files for NL_W and WNL_W samples
-Output file	/Analysis_of_Selection/Galaxy218-Normalized_counts.tabular	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular
+	|Low latitude populations|High latitude populations
+	------------
+Input file| count files for PT_W and WPT_W samples|	count files for NL_W and WNL_W samples
+Output file| /Analysis_of_Selection/Galaxy218-Normalized_counts.tabular|	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular
 
 5.2 differential expression analysis in each latitudinal population
 ==/Analysis_of_Selection/run_Analysis_of_Selection.R== (select appropriate options within the code)
