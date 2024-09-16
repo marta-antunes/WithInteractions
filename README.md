@@ -134,7 +134,7 @@ output from Proteinortho: Galaxy272.tabular D. melanogaster proteins
 after excluding non-candidate D. melanogaster protein IDs, the remaining relevant IDs were used as input for batch Entrez.
 the gene ids from batch entrez were used in BiNGO app from Cytoscape to make the enrichment analysis. The parameters used were the default ones with two exceptions: Ontology file that was set to GO_Biological_Process, GO_Molecular_Function or GO_Cellular_Component and organism/annotation was set to D. melanogaster.
 
-5.7 Analysis of the effects of selection in the magnitude of differences between latitudinal populations
+5.7 Analysis of the effects of selection in the magnitude of differences between latitudinal populations  
 5.7.1 normalize counts with DESeq2 within galaxy
 input files: count files for PT_W, NL_W, WPT_W and WNL_W samples
 output file: /Analysis_of_Convergence/Galaxy232-Normalized_counts.tabular
