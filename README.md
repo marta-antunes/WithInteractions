@@ -94,7 +94,7 @@ output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 
 
 5.3 make Manhattan plot for each latitudinal population
 
-`/Manhattan plots/make_plot_with_pvalues_negativelog2FC_below.R (select appropriate file names within the code)`
+`/Manhattan plots/make_plot_with_pvalues_negativelog2FC_below.R` (select appropriate file names within the code)
 
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
