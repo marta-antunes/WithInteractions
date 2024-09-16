@@ -9,8 +9,8 @@ To address this limitation, some of the code in this repository (e.g. run_Overal
 # 1. Pre-processing
 1.1. Quality control (fastqc is a quality control tool for high throughput sequence data)
 input files: the “.fq.gz” files stored at Sequence Read Archive (SRA) with accession number: XXX 
-	for file in  /*.fq.gz; do
-fastqc $file -t 11 -q -o /1_preprocessing/; done
+```for file in  /*.fq.gz; do
+fastqc $file -t 11 -q -o /1_preprocessing/; done```
 output files: “.fq_fastqc” file for each “.fq” file 
 
 1.2. Trimming
