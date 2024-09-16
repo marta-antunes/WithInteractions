@@ -109,24 +109,23 @@ normalizedCounts2PCA_onlyWenv.R
 output: PCA and PVCA plots in Fig. 2B
 
 5.5 make PCA and PCVA for the set of candidate genes of each latitudinal population
+`/PCAs/normalizedCounts2PCA_onlyWenv_candidateGenes.R` (select appropriate file names within the code)
+
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
 |Input files                     |	Galaxy238.tabular+/PCAs/CandidatesLowLat.txt|	Galaxy238.tabular+/PCAs/CandidatesHighLat.txt|
 |Output	                         |PCA and PVCA Fig. S6A            |	PCA and PVCA Fig. S6B        |
 
-```
-/PCAs/normalizedCounts2PCA_onlyWenv_candidateGenes.R
-```
-(select appropriate file names within the code)
 
 5.6 make Gene Ontology analysis
+
+`/Analysis_of_Selection /prepare_GO_analysis.py` (select appropriate file names within the code)
+
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
 |Input files	                 |GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff+ /Analysis_of_Selection/CandidatesLowLat_noprefix.txt |	GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff+ /Analysis_of_Selection/CandidatesHighLat_ noprefix.txt|
 
-```
-/Analysis_of_Selection /prepare_GO_analysis.py
-```
+
 
 this python script outputs D. subobscura protein ids for candidate genes in each latitudinal population
 detect D. melanogaster orthologs for all D. subobscura proteins (with Proteinortho within galaxy)
