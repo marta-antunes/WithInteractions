@@ -41,7 +41,7 @@ outputs: “.Q20L120.fq.gz” file for each input file
 ```
 
 # 3. Feature counts
-3.1 run featureCounts
+3.1 run featureCounts  
 input files: “.bam” files from the Pass 2 alignment and gff from the reference genome
 ```
 for file in folder
