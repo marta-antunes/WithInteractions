@@ -204,16 +204,14 @@ output file: Supplementary Tables S16A and S16B
 |Input files	                 |count files for WPT_C and WPT_W samples|	count files for WNL_C and WNL_W samples|
 |Output                  	 |/Analysis_of_Plasticity/Galaxy359-Normalized_counts.tabular	|/Analysis_of_Plasticity/Galaxy362-Normalized_counts.tabular|
 
-6.4.2 Differential expression analysis
+6.4.2 Differential expression analysis  
+`/Analysis_of_Plasticity/run_Analysis_of_Plasticity.R`(select appropriate file names within the code)
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
 |Input files	                 |/Analysis_of_Plasticity/Galaxy359-Normalized_counts.tabular|	/Analysis_of_Plasticity/Galaxy362-Normalized_counts.tabular|
 |Output	                         |Supplementary Table S18A	   |Supplementary Table S18B         |
 
-```
-/Analysis_of_Plasticity/run_Analysis_of_Plasticity.R
-```
- (select appropriate file names within the code)
+
 
 6.5 Evolution of Plasticity
 6.5.1 normalize counts with DESeq2 within galaxy for each latitudinal population
