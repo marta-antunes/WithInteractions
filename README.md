@@ -101,7 +101,7 @@ output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 
 |Input file	                 |/Manhattan plots/inputFilePT.csv |	/Manhattan plots/inputFileNL.csv|
 |Output file	                 |Fig. 3A	                   |Fig. 3B
 
-5.4 make PCA and PCVA for both latitudinal populations when tested in the warming environment using our full gene dataset
+5.4 make PCA and PCVA for both latitudinal populations when tested in the warming environment using our full gene dataset  
 input file: Galaxy238.tabular
 ```
 normalizedCounts2PCA_onlyWenv.R
