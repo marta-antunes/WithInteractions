@@ -108,7 +108,7 @@ normalizedCounts2PCA_onlyWenv.R
 ```
 output: PCA and PVCA plots in Fig. 2B
 
-5.5 make PCA and PCVA for the set of candidate genes of each latitudinal population
+5.5 make PCA and PCVA for the set of candidate genes of each latitudinal population  
 `/PCAs/normalizedCounts2PCA_onlyWenv_candidateGenes.R` (select appropriate file names within the code)
 
 |                                | Low latitude populations        | High latitude populations       |
