@@ -174,7 +174,7 @@ output file: /Analysis_of_Convergence/Galaxy232-Normalized_counts.tabular
 input file: count files for PT_C, NL_C, PT_W and NL_W populations  
 output file: /EffectOfHistoy_inPlasticityOfControlPops/Galaxy179-Normalized_counts.tabular
 
-6.2.2 differential expression analysis
+6.2.2 differential expression analysis  
 input file: /EffectOfHistoy_inPlasticityOfControlPops/Galaxy179-Normalized_counts.tabular
 ```
 /EffectOfHistoy_inPlasticityOfControlPops/run_Analysis_EffectOfHistoryInPlastOFControl.R
