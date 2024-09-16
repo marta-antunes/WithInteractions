@@ -197,7 +197,7 @@ output file: Supplementary Tables S16A and S16B
 
 
 
-6.4 Plasticity of the Warming populations
+6.4 Plasticity of the Warming populations  
 6.4.1 normalize counts with DESeq2 within galaxy for each latitudinal population
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
