@@ -188,16 +188,14 @@ output file: Supplementary Tables S16A and S16B
 |Input files	                 |count files for PT_C and NL_C samples|	count files for PT_W and NL_W samples|
 |Output	                         |/Analysis_of_History/Galaxy377-Normalized_counts.tabular	|/Analysis_of_History/Galaxy380-Normalized_counts.tabular|
 
-6.3.2 Differential expression analysis for each environment
+6.3.2 Differential expression analysis for each environment  
+`/Analysis_of_History/run_Analysis_of_History.R` (select appropriate file names within the code)
 |                                | Control environment        | Warming environment       |
 |--------------------------------|----------------------------|---------------------------|
 |Input files	                 |/Analysis_of_History/Galaxy377-Normalized_counts.tabular|/Analysis_of_History/Galaxy380-Normalized_counts.tabular|
 |Output                          |Supplementary Table S17A    |	Supplementary Table S17B  |
 
-```
-/Analysis_of_History/run_Analysis_of_History.R
-```
-(select appropriate file names within the code)
+
 
 6.4 Plasticity of the Warming populations
 6.4.1 normalize counts with DESeq2 within galaxy for each latitudinal population
