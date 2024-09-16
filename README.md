@@ -85,7 +85,7 @@ output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 
 
 5.2 differential expression analysis in each latitudinal population
 
-`/Analysis_of_Selection/run_Analysis_of_Selection.R` (select appropriate options within the code)
+`/Analysis_of_Selection/run_Analysis_of_Selection.R` (select appropriate file names within the code)
 
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
