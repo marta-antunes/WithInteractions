@@ -141,14 +141,16 @@ output file: /Analysis_of_Convergence/Galaxy232-Normalized_counts.tabular
 
 5.7.2 differential expression analysis  
 “input_analysis4.csv” file was created by editing the “Galaxy232-Normalized_counts.tabular” file
+
+`/Analysis_of_Convergence/run_Analysis_convergence.R` (select appropriate file names within the code)
+
+
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
 |Input files	                 |/Analysis_of_Convergence/input_analysis4.csv+ /Analysis_of_Convergence/CandidatesLowLat.txt|	/Analysis_of_Convergence/input_analysis4.csv+ /Analysis_of_Convergence/CandidatesHighLat.txt|
 |Output                          |	Table S14A                 |	Table S14B                   |
 
-```
-/Analysis_of_Convergence/run_Analysis_convergence.R
-```
+
 
 # 6. Evolution of plasticity
 6.1 Plasticity of the control populations
@@ -158,16 +160,14 @@ output file: /Analysis_of_Convergence/Galaxy232-Normalized_counts.tabular
 |Input files	                 |count files for PT_C and PT_W samples	|count files for NL_C and NL_W samples|
 |Output                          |	/Analysis_of_Plasticity/Galaxy108-Normalized_counts.tabular	|/Analysis_of_Plasticity/Galaxy123-Normalized_counts.tabular|
 
-6.1.2 differential expression analysis on each latitudinal population
+6.1.2 differential expression analysis on each latitudinal population  
+`/Analysis_of_Plasticity/run_Analysis_of_Plasticity.R` (select appropriate file names within the code)
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
 |Input files	                 |/Analysis_of_Plasticity/Galaxy108-Normalized_counts.tabular	|/Analysis_of_Plasticity/Galaxy123-Normalized_counts.tabular|
 |Output                          | Supplementary Table S15A	   |Supplementary Table S15B         |
 
-```
-/Analysis_of_Plasticity/run_Analysis_of_Plasticity.R
-```
- (select appropriate file names within the code)
+
 
 6.2 Analysis of the effects of history on the plasticity of the control populations
 6.2.1 normalize counts with DESeq2 within galaxy
