@@ -17,7 +17,9 @@ output files: “.fq_fastqc” file for each “.fq” file
 
 1.2. Trimming
 input files: the “.fq.gz” files stored at Sequence Read Archive (SRA) with accession number: XXX 
-==fastp -i ${file}_1.fq.gz -I ${file}_2.fq.gz -o /2_preprocessing/${file}_1.Q20L120.fq.gz -O 2_preprocessing/${file}_2.Q20L120.fq.gz --unpaired1 /2_preprocessing/${file}_unpaired1 --unpaired2 /2_preprocessing/${file}_unpaired2 --thread 11 --adapter_sequence AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT --adapter_sequence_r2 GATCGGAAGAGCACACGTCTGAACTCCAGTCAC --average_qual 20 --length_required 120 --overrepresentation_analysis  --json /1_preprocessing/${file}.json --html /1_preprocessing/${file}.html==
+```
+fastp -i ${file}_1.fq.gz -I ${file}_2.fq.gz -o /2_preprocessing/${file}_1.Q20L120.fq.gz -O 2_preprocessing/${file}_2.Q20L120.fq.gz --unpaired1 /2_preprocessing/${file}_unpaired1 --unpaired2 /2_preprocessing/${file}_unpaired2 --thread 11 --adapter_sequence AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT --adapter_sequence_r2 GATCGGAAGAGCACACGTCTGAACTCCAGTCAC --average_qual 20 --length_required 120 --overrepresentation_analysis  --json /1_preprocessing/${file}.json --html /1_preprocessing/${file}.html
+```
 outputs: “.Q20L120.fq.gz” file for each input file
 
 # 2. Mapping
