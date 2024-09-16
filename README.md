@@ -96,9 +96,10 @@ output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 
 ```
 /Manhattan plots/make_plot_with_pvalues_negativelog2FC_below.R
 ```
-	Low latitude populations	High latitude populations
-Input file	/Manhattan plots/inputFilePT.csv	/Manhattan plots/inputFileNL.csv
-Output file	Fig. 3A	Fig. 3B
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input file	                 |/Manhattan plots/inputFilePT.csv |	/Manhattan plots/inputFileNL.csv|
+|Output file	                 |Fig. 3A	                   |Fig. 3B
 
 5.4 make PCA and PCVA for both latitudinal populations when tested in the warming environment using our full gene dataset
 input file: Galaxy238.tabular
@@ -108,9 +109,10 @@ normalizedCounts2PCA_onlyWenv.R
 output: PCA and PVCA plots in Fig. 2B
 
 5.5 make PCA and PCVA for the set of candidate genes of each latitudinal population
-	Low latitude populations	High latitude populations
-Input files	Galaxy238.tabular+/PCAs/CandidatesLowLat.txt	Galaxy238.tabular+/PCAs/CandidatesHighLat.txt
-Output	PCA and PVCA Fig. S6A	PCA and PVCA Fig. S6B
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files                     |	Galaxy238.tabular+/PCAs/CandidatesLowLat.txt|	Galaxy238.tabular+/PCAs/CandidatesHighLat.txt|
+|Output	                         |PCA and PVCA Fig. S6A            |	PCA and PVCA Fig. S6B        |
 
 ```
 /PCAs/normalizedCounts2PCA_onlyWenv_candidateGenes.R
@@ -118,8 +120,9 @@ Output	PCA and PVCA Fig. S6A	PCA and PVCA Fig. S6B
 (select appropriate file names within the code)
 
 5.6 make Gene Ontology analysis
-	Low latitude populations	High latitude populations
-Input files	GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff+ /Analysis_of_Selection/CandidatesLowLat_noprefix.txt	GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff+ /Analysis_of_Selection/CandidatesHighLat_ noprefix.txt
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff+ /Analysis_of_Selection/CandidatesLowLat_noprefix.txt |	GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff+ /Analysis_of_Selection/CandidatesHighLat_ noprefix.txt|
 
 ```
 /Analysis_of_Selection /prepare_GO_analysis.py
@@ -139,25 +142,33 @@ output file: /Analysis_of_Convergence/Galaxy232-Normalized_counts.tabular
 
 5.7.2 differential expression analysis
  “input_analysis4.csv” file was created by editing the “Galaxy232-Normalized_counts.tabular” file
-	Low latitude populations	High latitude populations
-Input files	/Analysis_of_Convergence/input_analysis4.csv+ /Analysis_of_Convergence/CandidatesLowLat.txt	/Analysis_of_Convergence/input_analysis4.csv+ /Analysis_of_Convergence/CandidatesHighLat.txt
-Output	Table S14A	Table S14B
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |/Analysis_of_Convergence/input_analysis4.csv+ /Analysis_of_Convergence/CandidatesLowLat.txt|	/Analysis_of_Convergence/input_analysis4.csv+ /Analysis_of_Convergence/CandidatesHighLat.txt|
+|Output                          |	Table S14A                 |	Table S14B                   |
 
-==/Analysis_of_Convergence/run_Analysis_convergence.R==
+```
+/Analysis_of_Convergence/run_Analysis_convergence.R
+```
 
 # 6. Evolution of plasticity
 6.1 Plasticity of the control populations
 6.1.1 normalize counts with DESeq2 within galaxy for each latitudinal population
-	Low latitude populations	High latitude populations
-Input files	count files for PT_C and PT_W samples	count files for NL_C and NL_W samples
-Output	/Analysis_of_Plasticity/Galaxy108-Normalized_counts.tabular	/Analysis_of_Plasticity/Galaxy123-Normalized_counts.tabular
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |count files for PT_C and PT_W samples	|count files for NL_C and NL_W samples|
+|Output                          |	/Analysis_of_Plasticity/Galaxy108-Normalized_counts.tabular	|/Analysis_of_Plasticity/Galaxy123-Normalized_counts.tabular|
 
 6.1.2 differential expression analysis on each latitudinal population
-	Low latitude populations	High latitude populations
-Input files	/Analysis_of_Plasticity/Galaxy108-Normalized_counts.tabular	/Analysis_of_Plasticity/Galaxy123-Normalized_counts.tabular
-Output	Supplementary Table S15A	Supplementary Table S15B
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |/Analysis_of_Plasticity/Galaxy108-Normalized_counts.tabular	|/Analysis_of_Plasticity/Galaxy123-Normalized_counts.tabular|
+|Output                          | Supplementary Table S15A	   |Supplementary Table S15B         |
 
-==/Analysis_of_Plasticity/run_Analysis_of_Plasticity.R== (select appropriate file names within the code)
+```
+/Analysis_of_Plasticity/run_Analysis_of_Plasticity.R
+```
+ (select appropriate file names within the code)
 
 6.2 Analysis of the effects of history on the plasticity of the control populations
 6.2.1 normalize counts with DESeq2 within galaxy
@@ -166,57 +177,79 @@ output file: /EffectOfHistoy_inPlasticityOfControlPops/Galaxy179-Normalized_coun
 
 6.2.2 differential expression analysis
 input file: /EffectOfHistoy_inPlasticityOfControlPops/Galaxy179-Normalized_counts.tabular
-==/EffectOfHistoy_inPlasticityOfControlPops/run_Analysis_EffectOfHistoryInPlastOFControl.R==
+```
+/EffectOfHistoy_inPlasticityOfControlPops/run_Analysis_EffectOfHistoryInPlastOFControl.R
+```
 output file: Supplementary Tables S16A and S16B
 
 6.3 Analysis of differences between control populations of distinct history
 6.3.1 normalize counts with DESeq2 within galaxy for each environment
-	Control environment	Warming environment
-Input files	count files for PT_C and NL_C samples	count files for PT_W and NL_W samples
-Output	/Analysis_of_History/Galaxy377-Normalized_counts.tabular	/Analysis_of_History/Galaxy380-Normalized_counts.tabular
+|                                | Control environment        | Warming environment       |
+|--------------------------------|----------------------------|---------------------------|
+|Input files	                 |count files for PT_C and NL_C samples|	count files for PT_W and NL_W samples|
+|Output	                         |/Analysis_of_History/Galaxy377-Normalized_counts.tabular	|/Analysis_of_History/Galaxy380-Normalized_counts.tabular|
 
 6.3.2 Differential expression analysis for each environment
-	Control environment	Warming environment
-Input files	/Analysis_of_History/Galaxy377-Normalized_counts.tabular	/Analysis_of_History/Galaxy380-Normalized_counts.tabular
-Output	Supplementary Table S17A	Supplementary Table S17B
+|                                | Control environment        | Warming environment       |
+|--------------------------------|----------------------------|---------------------------|
+|Input files	                 |/Analysis_of_History/Galaxy377-Normalized_counts.tabular|/Analysis_of_History/Galaxy380-Normalized_counts.tabular|
+|Output                          |Supplementary Table S17A    |	Supplementary Table S17B  |
 
-==/Analysis_of_History/run_Analysis_of_History.R== (select appropriate file names within the code)
+```
+/Analysis_of_History/run_Analysis_of_History.R
+```
+(select appropriate file names within the code)
 
 6.4 Plasticity of the Warming populations
 6.4.1 normalize counts with DESeq2 within galaxy for each latitudinal population
-	Low latitude populations	High latitude populations
-Input files	count files for WPT_C and WPT_W samples	count files for WNL_C and WNL_W samples
-Output	/Analysis_of_Plasticity/Galaxy359-Normalized_counts.tabular	/Analysis_of_Plasticity/Galaxy362-Normalized_counts.tabular
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |count files for WPT_C and WPT_W samples|	count files for WNL_C and WNL_W samples|
+|Output                  	 |/Analysis_of_Plasticity/Galaxy359-Normalized_counts.tabular	|/Analysis_of_Plasticity/Galaxy362-Normalized_counts.tabular|
 
 6.4.2 Differential expression analysis
-	Low latitude populations	High latitude populations
-Input files	/Analysis_of_Plasticity/Galaxy359-Normalized_counts.tabular	/Analysis_of_Plasticity/Galaxy362-Normalized_counts.tabular
-Output	Supplementary Table S18A	Supplementary Table S18B
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |/Analysis_of_Plasticity/Galaxy359-Normalized_counts.tabular|	/Analysis_of_Plasticity/Galaxy362-Normalized_counts.tabular|
+|Output	                         |Supplementary Table S18A	   |Supplementary Table S18B         |
 
-==/Analysis_of_Plasticity/run_Analysis_of_Plasticity.R== (select appropriate file names within the code)
+```
+/Analysis_of_Plasticity/run_Analysis_of_Plasticity.R
+```
+ (select appropriate file names within the code)
 
 6.5 Evolution of Plasticity
 6.5.1 normalize counts with DESeq2 within galaxy for each latitudinal population
-	Low latitude populations	High latitude populations
-Input files	count files for PT_C, WPT_C, PT_W and WPT_W samples	count files for NL_C, WNL_C, NL_W and WNL_W samples
-Output	/Analysis_of_the_Evolution_of_plasticity/Galaxy255-Normalized_counts.tabular	/Analysis_of_the_Evolution_of_plasticity/Galaxy252-Normalized_counts.tabular
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |count files for PT_C, WPT_C, PT_W and WPT_W samples|	count files for NL_C, WNL_C, NL_W and WNL_W samples|
+|Output                    	 |/Analysis_of_the_Evolution_of_plasticity/Galaxy255-Normalized_counts.tabular|	/Analysis_of_the_Evolution_of_plasticity/Galaxy252-Normalized_counts.tabular|
 
 6.5.2 Differential expression analysis
 	Low latitude populations	High latitude populations
 Input files	/Analysis_of_the_Evolution_of_plasticity/Galaxy255-Normalized_counts.tabular	/Analysis_of_the_Evolution_of_plasticity/Galaxy252-Normalized_counts.tabular
 Output	Supplementary Table S19A	Supplementary Table S19B
 
-==/Analysis_of_the_Evolution_of_plasticity/run_Analysis_of_evolution_of_plasticity.R== (select appropriate file names within the code)
+```
+/Analysis_of_the_Evolution_of_plasticity/run_Analysis_of_evolution_of_plasticity.R
+```
+ (select appropriate file names within the code)
 
 # 7. Plasticity vs Evolution (files provided)
 7.1 Fisher exact test for each latitudinal population
 input file: not necessary
-==Fisher_test_for_plasticity_and_selection.R==
+```
+Fisher_test_for_plasticity_and_selection.R
+```
 output: p-value, alternative hypothesis, 95 percent confidence interval and odds ratio for each latitudinal population
 
 # 8. Jaccard index (files provided)
-	Low latitude populations	High latitude populations
-Input files	/Analysis_of_Selection/Galaxy218-Normalized_counts.tabular+interest.txt	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular+interest.txt
-Output	Mean jaccard Index	Mean jaccard Index
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+|Input files	                 |/Analysis_of_Selection/Galaxy218-Normalized_counts.tabular+interest.txt|	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular+interest.txt|
+|Output	                         |Mean jaccard Index	           |Mean jaccard Index               |
 
-== calculate_jaccardIndex.R ==
+```
+calculate_jaccardIndex.R
+```
+
