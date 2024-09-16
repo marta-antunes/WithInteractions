@@ -3,7 +3,7 @@ Authors: Marta A. Antunes, Marta A. Santos, Ana S. Quina, Mauro Santos, Margarid
 # - Workflow -
 
 Below we provide a step-by-step workflow of the analyses in the paper. Shaded background represents the code for the analysis or filenames for specific files containing code (provided).  
-DESeq2, a widely used tool for differential gene expression analysis, estimates variance-mean dependence in count data from high-throughput sequencing assays and tests for differential expression using the negative binomial distribution. However, DESeq2 does not provide p-values for interaction terms in its analyses.
+DESeq2, a widely used tool for differential gene expression analysis, estimates variance-mean dependence in count data from high-throughput sequencing assays and tests for differential expression using the negative binomial distribution. However, DESeq2 does not provide p-values for interaction terms in its analyses.  
 To address this limitation, some of the code in this repository (e.g. run_Overall_gene_expression_analysis.R) extends DESeq2's functionality. It enables differential gene expression analysis based on the negative binomial distribution while incorporating interaction terms, allowing for more nuanced statistical insights.
 
 # 1. Pre-processing
