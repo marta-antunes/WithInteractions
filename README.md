@@ -139,8 +139,8 @@ the gene ids from batch entrez were used in BiNGO app from Cytoscape to make the
 input files: count files for PT_W, NL_W, WPT_W and WNL_W samples  
 output file: /Analysis_of_Convergence/Galaxy232-Normalized_counts.tabular
 
-5.7.2 differential expression analysis
- “input_analysis4.csv” file was created by editing the “Galaxy232-Normalized_counts.tabular” file
+5.7.2 differential expression analysis  
+“input_analysis4.csv” file was created by editing the “Galaxy232-Normalized_counts.tabular” file
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
 |Input files	                 |/Analysis_of_Convergence/input_analysis4.csv+ /Analysis_of_Convergence/CandidatesLowLat.txt|	/Analysis_of_Convergence/input_analysis4.csv+ /Analysis_of_Convergence/CandidatesHighLat.txt|
