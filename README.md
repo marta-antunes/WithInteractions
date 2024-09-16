@@ -112,7 +112,7 @@ Output	Table S14A	Table S14B
 
 ==/Analysis_of_Convergence/run_Analysis_convergence.R==
 
-#6. Evolution of plasticity
+# 6. Evolution of plasticity
 6.1 Plasticity of the control populations
 6.1.1 normalize counts with DESeq2 within galaxy for each latitudinal population
 	Low latitude populations	High latitude populations
@@ -175,13 +175,13 @@ Output	Supplementary Table S19A	Supplementary Table S19B
 
 ==/Analysis_of_the_Evolution_of_plasticity/run_Analysis_of_evolution_of_plasticity.R== (select appropriate file names within the code)
 
-#7. Plasticity vs Evolution (files provided)
+# 7. Plasticity vs Evolution (files provided)
 7.1 Fisher exact test for each latitudinal population
 input file: not necessary
 ==Fisher_test_for_plasticity_and_selection.R==
 output: p-value, alternative hypothesis, 95 percent confidence interval and odds ratio for each latitudinal population
 
-#8. Jaccard index (files provided)
+# 8. Jaccard index (files provided)
 	Low latitude populations	High latitude populations
 Input files	/Analysis_of_Selection/Galaxy218-Normalized_counts.tabular+interest.txt	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular+interest.txt
 Output	Mean jaccard Index	Mean jaccard Index
