@@ -153,7 +153,7 @@ output file: /Analysis_of_Convergence/Galaxy232-Normalized_counts.tabular
 
 
 # 6. Evolution of plasticity
-6.1 Plasticity of the control populations
+6.1 Plasticity of the control populations  
 6.1.1 normalize counts with DESeq2 within galaxy for each latitudinal population
 |                                | Low latitude populations        | High latitude populations       |
 |--------------------------------|---------------------------------|---------------------------------|
