@@ -1,4 +1,4 @@
-#Evolution and plasticity of gene expression under progressive warming in Drosophila subobscura
+# Evolution and plasticity of gene expression under progressive warming in Drosophila subobscura
 Authors: Marta A. Antunes, Marta A. Santos, Ana S. Quina, Mauro Santos, Margarida Matos & Pedro Simões
 #- Workflow -
 
