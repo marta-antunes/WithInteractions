@@ -24,24 +24,35 @@ outputs: “.Q20L120.fq.gz” file for each input file
 
 # 2. Mapping
 2.1 Index genome and annotation file
-==/opt/tools/STAR-2.7.9a/source/STAR --runMode genomeGenerate --runThreadN 11 --genomeDir /3_mapping/StarIndexFiles/ --genomeFastaFiles /ReferenceGenome/drosophilaSubobscura_1.0/ncbi/GCF_008121235.1_UCBerk_Dsub_1.0_genomic.fna --sjdbGTFfile /ReferenceGenome/drosophilaSubobscura_1.0/ncbi/GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff --sjdbGTFfeatureExon exon --sjdbGTFtagExonParentTranscript ID --sjdbGTFtagExonParentGene Parent --genomeSAindexNbases 12==
+```
+/opt/tools/STAR-2.7.9a/source/STAR --runMode genomeGenerate --runThreadN 11 --genomeDir /3_mapping/StarIndexFiles/ --genomeFastaFiles /ReferenceGenome/drosophilaSubobscura_1.0/ncbi/GCF_008121235.1_UCBerk_Dsub_1.0_genomic.fna --sjdbGTFfile /ReferenceGenome/drosophilaSubobscura_1.0/ncbi/GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff --sjdbGTFfeatureExon exon --sjdbGTFtagExonParentTranscript ID --sjdbGTFtagExonParentGene Parent --genomeSAindexNbases 12
+```
 
 2.2 Pass 1 for one sample (as example), will generate a Sam file and one SJ.tab file for each pair
-==/opt/tools/STAR-2.7.9a/source/STAR --runMode alignReads --runThreadN 11 --genomeDir /3_mapping/StarIndexFiles/ --readFilesCommand zcat --readFilesIn PT1_G23_C_1.Q20L120.fq.gz PT1_G23_C_2.Q20L120.fq.gz --outFileNamePrefix RNASEQ_PT1G23C.Q20L120_Alingment1==
+```
+/opt/tools/STAR-2.7.9a/source/STAR --runMode alignReads --runThreadN 11 --genomeDir /3_mapping/StarIndexFiles/ --readFilesCommand zcat --readFilesIn PT1_G23_C_1.Q20L120.fq.gz PT1_G23_C_2.Q20L120.fq.gz --outFileNamePrefix RNASEQ_PT1G23C.Q20L120_Alingment1
+```
 
 2.3 Pass 2 for one sample (as example), give as argument the SJ.tab file produced for all the pair. Generates a sorted by coordinate BAM file
-==/opt/tools/STAR-2.7.9a/source/STAR --runMode alignReads --runThreadN 11 --genomeDir /3_mapping/StarIndexFiles/ --readFilesCommand zcat --readFilesIn PT1_G23_C_1.Q20L120.fq.gz PT1_G23_C_2.Q20L120.fq.gz --sjdbFileChrStartEnd *SJ.out.tab --outSAMtype BAM SortedByCoordinate --outFileNamePrefix RNASEQ_PT1G23C.Q20L120_Alingment2 --limitBAMsortRAM 3059132604==
+```
+/opt/tools/STAR-2.7.9a/source/STAR --runMode alignReads --runThreadN 11 --genomeDir /3_mapping/StarIndexFiles/ --readFilesCommand zcat --readFilesIn PT1_G23_C_1.Q20L120.fq.gz PT1_G23_C_2.Q20L120.fq.gz --sjdbFileChrStartEnd *SJ.out.tab --outSAMtype BAM SortedByCoordinate --outFileNamePrefix RNASEQ_PT1G23C.Q20L120_Alingment2 --limitBAMsortRAM 3059132604
+```
 
 # 3. Feature counts
 3.1 run featureCounts
 input files: “.bam” files from the Pass 2 alignment and gff from the reference genome
-==for file in folder
-do;/opt/tools/subread-2.0.0-Linux-x86_64/bin/featureCounts -p -T 9 -F GFF -t gene -g ID -s 2 -C -a  /ReferenceGenome/drosophilaSubobscura_1.0/ncbi/GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff -o /4_featureCounts/${file}_counts  /3_mapping/STAR/2ndRun/RNASEQ_${file}.Q20L120_Alingment2Aligned.sortedByCoord.out.bam > ${file}.log 2>&1;done==
+```
+for file in folder
+do;/opt/tools/subread-2.0.0-Linux-x86_64/bin/featureCounts -p -T 9 -F GFF -t gene -g ID -s 2 -C -a  /ReferenceGenome/drosophilaSubobscura_1.0/ncbi/GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff -o /4_featureCounts/${file}_counts  /3_mapping/STAR/2ndRun/RNASEQ_${file}.Q20L120_Alingment2Aligned.sortedByCoord.out.bam > ${file}.log 2>&1;done
+```
 output files: count files for each sample
 
 3.2 generate supplementary figure S2
 MultiQC software receives count files for all samples and generates the figure. The dot below (.) indicates that the software was run in the current working directory.
-==Multiqc .==
+```
+Multiqc .
+
+```
 
 # 4. Overall gene expression analysis
 4.1 normalize counts with DESeq2 within galaxy
@@ -51,12 +62,16 @@ all normalizations were done selection the option “output options”>”Output
 
 4.2 make PCA and PVCA for all samples using our full gene dataset
 input file: Galaxy238.tabular
-==normalizedCounts2PCA.R==
+```
+normalizedCounts2PCA.R
+```
 output: PCA and PVCA plots (Fig. 2A)
 
 4.3 differential expression analysis
 input file: Galaxy238.tabular 
-==run_Overall_gene_expression_analysis.R==
+```
+run_Overall_gene_expression_analysis.R
+```
 output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 and S10)
 
 # 5. Evolutionary changes in the warming environment 
@@ -67,20 +82,29 @@ output file: results_OverallGeneExpressionAnalysis.csv (supplementary tables S9 
 | Output file                    | /Analysis_of_Selection/Galaxy218-Normalized_counts.tabular | /Analysis_of_Selection/Galaxy225-Normalized_counts.tabular |
 
 5.2 differential expression analysis in each latitudinal population
-==/Analysis_of_Selection/run_Analysis_of_Selection.R== (select appropriate options within the code)
-	Low latitude populations	High latitude populations
-Input file	/Analysis_of_Selection/Galaxy218-Normalized_counts.tabular	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular
-Output file	supplementary table S12A	supplementary table S12B
+```
+/Analysis_of_Selection/run_Analysis_of_Selection.R
+```
+(select appropriate options within the code)
+
+|                                | Low latitude populations        | High latitude populations       |
+|--------------------------------|---------------------------------|---------------------------------|
+| Input file	                 |/Analysis_of_Selection/Galaxy218-Normalized_counts.tabular|	/Analysis_of_Selection/Galaxy225-Normalized_counts.tabular|
+|Output file	                 |supplementary table S12A	   |supplementary table S12B         |
 
 5.3 make Manhattan plot for each latitudinal population
-==/Manhattan plots/make_plot_with_pvalues_negativelog2FC_below.R==
+```
+/Manhattan plots/make_plot_with_pvalues_negativelog2FC_below.R
+```
 	Low latitude populations	High latitude populations
 Input file	/Manhattan plots/inputFilePT.csv	/Manhattan plots/inputFileNL.csv
 Output file	Fig. 3A	Fig. 3B
 
 5.4 make PCA and PCVA for both latitudinal populations when tested in the warming environment using our full gene dataset
 input file: Galaxy238.tabular
-==normalizedCounts2PCA_onlyWenv.R==
+```
+normalizedCounts2PCA_onlyWenv.R
+```
 output: PCA and PVCA plots in Fig. 2B
 
 5.5 make PCA and PCVA for the set of candidate genes of each latitudinal population
@@ -88,13 +112,18 @@ output: PCA and PVCA plots in Fig. 2B
 Input files	Galaxy238.tabular+/PCAs/CandidatesLowLat.txt	Galaxy238.tabular+/PCAs/CandidatesHighLat.txt
 Output	PCA and PVCA Fig. S6A	PCA and PVCA Fig. S6B
 
-==/PCAs/normalizedCounts2PCA_onlyWenv_candidateGenes.R== (select appropriate file names within the code)
+```
+/PCAs/normalizedCounts2PCA_onlyWenv_candidateGenes.R
+```
+(select appropriate file names within the code)
 
 5.6 make Gene Ontology analysis
 	Low latitude populations	High latitude populations
 Input files	GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff+ /Analysis_of_Selection/CandidatesLowLat_noprefix.txt	GCF_008121235.1_UCBerk_Dsub_1.0_genomic.gff+ /Analysis_of_Selection/CandidatesHighLat_ noprefix.txt
 
-==/Analysis_of_Selection /prepare_GO_analysis.py==
+```
+/Analysis_of_Selection /prepare_GO_analysis.py
+```
 
 this python script outputs D. subobscura protein ids for candidate genes in each latitudinal population
 detect D. melanogaster orthologs for all D. subobscura proteins (with Proteinortho within galaxy)
