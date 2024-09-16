@@ -169,9 +169,9 @@ output file: /Analysis_of_Convergence/Galaxy232-Normalized_counts.tabular
 
 
 
-6.2 Analysis of the effects of history on the plasticity of the control populations
-6.2.1 normalize counts with DESeq2 within galaxy
-input file: count files for PT_C, NL_C, PT_W and NL_W populations
+6.2 Analysis of the effects of history on the plasticity of the control populations  
+6.2.1 normalize counts with DESeq2 within galaxy  
+input file: count files for PT_C, NL_C, PT_W and NL_W populations  
 output file: /EffectOfHistoy_inPlasticityOfControlPops/Galaxy179-Normalized_counts.tabular
 
 6.2.2 differential expression analysis
