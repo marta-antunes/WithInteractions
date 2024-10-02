@@ -78,7 +78,7 @@ arrows(x0 = PT3_W_coords[1], y0 = PT3_W_coords[2],
 # Plot the legend in the separate space
 par(mar=c(5,0,4,0))  # Adjust margins for the legend
 plot.new()  # Create a new plot
-legend("center", legend=c("Control Regime", "Warming Regime", "Low latitude", "High latitude"), col=c("grey38", "grey38", "grey38", "grey38"), lty = c(0, 0, 0), cex=0.6, pch = c(16, 15, 16, 21))
+legend("center", legend=c("Control Regime", "Warming Regime", "Low latitude", "High latitude"), col=c("grey38", "grey38", "orange", "blue"), lty = c(0, 0, 1, 1), cex=0.6, pch = c(16, 15, 16, 21))
 
 #code used for pvca
 library(Biobase)
